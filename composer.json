@@ -1,0 +1,41 @@
+{
+    "name": "eloquent/phony-simpletest",
+    "description": "Phony for SimpleTest.",
+    "keywords": ["mock", "mocking", "stub", "stubbing", "spy", "dummy", "double", "test", "fake"],
+    "homepage": "http://eloquent-software.com/phony/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Erin Millard",
+            "email": "ezzatron@gmail.com",
+            "homepage": "http://ezzatron.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "eloquent/phony": "dev-remove-integrations",
+        "simpletest/simpletest": "^1"
+    },
+    "require-dev": {
+        "errors/exceptions": "^0.1",
+        "phpunit/phpunit": "^4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Eloquent\\Phony\\Simpletest\\": "src"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Eloquent\\Phony\\Simpletest\\": "test/src"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "5.3.99999"
+        }
+    }
+}
