@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "337cefc16b991e67231327cf6a3b90e2",
+    "content-hash": "4ed2a7eab36f0b5e068f5e4601e3f561",
     "packages": [
         {
             "name": "eloquent/phony",
-            "version": "dev-remove-integrations",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/phony.git",
-                "reference": "3b5fdd8db52262b26aa0034e3e96f218d0a49d61"
+                "reference": "418375e6714efb3db0defcd0ffe0ac4159e126f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/phony/zipball/3b5fdd8db52262b26aa0034e3e96f218d0a49d61",
-                "reference": "3b5fdd8db52262b26aa0034e3e96f218d0a49d61",
+                "url": "https://api.github.com/repos/eloquent/phony/zipball/418375e6714efb3db0defcd0ffe0ac4159e126f1",
+                "reference": "418375e6714efb3db0defcd0ffe0ac4159e126f1",
                 "shasum": ""
             },
             "require": {
@@ -28,9 +28,7 @@
                 "ext-pdo": "*",
                 "hamcrest/hamcrest-php": "^2",
                 "icecave/semver": "^3",
-                "peridot-php/leo": "^1",
-                "peridot-php/peridot": "^1",
-                "phpunit/phpunit": "^4|^5"
+                "phpunit/phpunit": "^4"
             },
             "type": "library",
             "autoload": {
@@ -65,7 +63,7 @@
                 "stubbing",
                 "test"
             ],
-            "time": "2017-04-24 02:59:47"
+            "time": "2017-04-24T08:40:13+00:00"
         },
         {
             "name": "simpletest/simpletest",
@@ -1156,9 +1154,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "eloquent/phony": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
