@@ -2,61 +2,33 @@ language: php
 
 matrix:
     include:
-        - php: 5.3
         - php: 5.4
         - php: 5.5
         - php: 5.6
         - php: 7.0
         - php: 7.1
+        - php: 7.2
         - php: nightly
-        - php: hhvm-3.6
-          sudo: required
-          dist: trusty
-          group: edge
-        - php: hhvm-3.9
-          sudo: required
-          dist: trusty
-          group: edge
-        - php: hhvm-3.12
-          sudo: required
-          dist: trusty
-          group: edge
-        - php: hhvm-3.15
-          sudo: required
-          dist: trusty
-          group: edge
         - php: hhvm-3.18
           sudo: required
-          dist: trusty
-          group: edge
-        - php: hhvm-3.18
-          sudo: required
-          dist: trusty
-          group: edge
-          env: HHVMPHP7=1
-        - php: hhvm-nightly
-          sudo: required
-          dist: trusty
-          group: edge
+          services:
+              - docker
+          env: HHVM=1
     fast_finish: true
     allow_failures:
         - php: nightly
-        - php: hhvm-nightly
-        - env: HHVMPHP7=1
 
 before_install:
     - phpenv config-rm xdebug.ini || true
     - composer config --global github-oauth.github.com $GITHUB_TOKEN
 install: composer install --prefer-dist --no-progress --no-interaction
-before_script:
-  - if [[ "$HHVMPHP7" ]]; then echo hhvm.php7.all=1 >> /etc/hhvm/php.ini; fi
 script: scripts/travis
 after_script: scripts/travis-after
 
 env:
     global:
         - ELOQUENT_PUBLISH_VERSION=7.1
-        - secure: "wtPRNm+x987/5CBkbz/hsJLvglEtGE4v1SpMA5Aun4f39ohhYNTPMNsSeg5KcPLWNIhx+9K/UYGACfp1+kPHiIAT5xdJojbhA82s87vCzfyGYJSKE2bt+nRujxRson3mdAbtRp0PHKiXG+x96qKyNgpTQeZiEfRXcsEz78ynAjdmGM5Y8uNC9lCypVZBZGXRqBjvakNta1o3XJ58oHIo4sHnWpxPG6jMtsojzbJKE6O8tGHV41fTHrYo+MqAY0hz86JpwYEjp/+0bOq/6pRzM0virXAxu29dunidkd5zls9ezoZpj1UTN9wOi4kuT6SODFPQteQ5RUcprruvANPxmOyl3nt9yHVb5TxbESWVGmIrMsiq0LiEEhIhZAHifo7+V0+HCgi/S1UN7eiJiTNctStYQ3wNAR5S0VCyvtoqtaNLhJjZ1CZrnP2DDJCtElcuHbrzO05UZbZyR7gPTJ4sd4ZELJ2dYOJNAYe9PGPREcVDy8H3XElG3wYXYCebVo5VDQ6YLTD/qdN+MyVgislHeQRqKO4yE8invsRKZoXpz/lNaQmTDRQJBgF7F0AE42z5JOw/om+goBMmrpWo9WPR5o3kv6nPe+kwwCpTxIPI08LEdRsFLK1JjCGU6IoDWgHDUSC+sY3QrYZaHtfudh53AahP2fVmQ8RYXDk0pAahkt8="
+        - secure: "rABto8EK2n8oPqwXNUVYL5tfZcT3UptBmQ5TxGr3DoVDfUpSFAi9gsDouAa7ybuB138KzUwclHD0bujyBgWVg7Axnv2YKha42IHhM/bPAujFZdLOd7wVaAuOi9WgPFKzqxbMYjDk6NRDVpSSOH0jisCoV8er65ez0YTI2v4ZSWIEfnA4DM1YOR4Y+78hCPV4OhF62VIDhcTh7GEljUxjjV2wvTDTh9RK0Rigs8ocGBl3SJZ6OLAGN+cwuo8+cKBNJwLMhq4B58UmnZtw4UHKgB58U97Whjv15f9ghgAa1gilxWxGNqK/QFzGBSv0m4w7AVnBqi0xWCSsQNr8pleDEWgafWVHn94skzhVUDp2oFl1eZ3E23VykNRZpBLyumHmxpozB0LtZs1hvPEDBOtefkggf0ykTvQ7ThByEDwMzCd6DFrBD+phHWW9Et8hMadmzyYLbEEondU5JyVpwiaiEnm7jbXNgxL0C/kiVbarbN7e9GWtaiMPC8DbCS+cMBVb191foO6ZQEL+RTVBbVuOhPt9omTJjCMa5hW92DHMhFYEz7QqrYppMzidr9IZAeUMpLbO5W19LoU7IIa5VHV3s7z4Rvumy7RoQ9j5tMxjCvLMAryTDb2xnpxuTDNrZqHeH8/Vui9QcTpdWdtA5z6akjl9GbFpGJ8UxGiyIOQzuDE="
 
 cache:
     directories:
